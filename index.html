@@ -3,55 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الشخصي</title>
+    <title>موقعي الشخصي - مساحات إعلانية</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 0; padding: 0; background-color: #f0f2f5; color: #333;
+            display: flex; flex-direction: column; align-items: center;
         }
         header {
-            background-color: #0078d4;
-            color: white;
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: #0078d4; color: white; width: 100%;
+            padding: 20px 0; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .main-container {
-            max-width: 800px;
-            width: 90%;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-align: center;
+            max-width: 800px; width: 90%; margin: 20px auto;
+            background: white; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;
         }
         .ad-container {
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #fafafa;
-            border: 1px dashed #ccc;
-            border-radius: 4px;
-            display: inline-block;
+            margin: 20px auto; padding: 10px; background-color: #fafafa;
+            border: 1px dashed #ccc; border-radius: 4px; display: inline-block;
         }
-        .content-area {
-            line-height: 1.6;
-            margin: 20px 0;
-            text-align: right;
+        .ad-label {
+            font-size: 10px; color: #999; display: block; margin-bottom: 5px;
         }
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
+        .content-area { line-height: 1.6; margin: 20px 0; text-align: right; }
+        footer { margin-top: 40px; padding: 20px; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
@@ -61,40 +37,74 @@
     </header>
 
     <div class="main-container">
-        
-        <!-- إعلان البنر الصغير (120x60) في الأعلى -->
-        <div class="ad-container">
-            <span style="font-size: 10px; color: #999; display: block; margin-bottom: 5px;">إعلان</span>
-            <!-- BEGIN AADS AD UNIT 2440717 -->
-            <div id="frame-banner" style="width: 120px; margin: auto; z-index: 99998; height: auto">
-                <iframe data-aa='2440717' src='//ad.a-ads.com/2440717/?size=120x60'
-                        style='border:0; padding:0; width:120px; height:60px; overflow:hidden; display: block; margin: auto'></iframe>
-            </div>
-            <!-- END AADS AD UNIT 2440717 -->
-        </div>
-
         <div class="content-area">
             <h3>نبذة عن الموقع</h3>
             <p>هذا الموقع تجريبي مستضاف بالكامل على منصة GitHub Pages. نهدف من خلاله إلى تقديم محتوى مبسط ومشاركة الأدوات المفيدة مع الزوار.</p>
-            <p>نعمل باستمرار على تحديث المحتوى وإضافة مقالات جديدة تهم المهتمين بالتقنية والتطوير.</p>
         </div>
 
-        <!-- إعلان الصورة الكبير (300x250) في الأسفل أو وسط المحتوى -->
-        <div class="ad-container">
-            <span style="font-size: 10px; color: #999; display: block; margin-bottom: 5px;">إعلان مروج</span>
-            <!-- BEGIN AADS AD UNIT 2440720 -->
-            <div id="frame-image" style="width: 300px; margin: auto; z-index: 99998; height: auto">
-                <iframe data-aa='2440720' src='//ad.a-ads.com/2440720/?size=300x250'
-                        style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display: block; margin: auto'></iframe>
-            </div>
-            <!-- END AADS AD UNIT 2440720 -->
-        </div>
-
+        <!-- هنا سيقوم الجافاسكربت بضخ الإعلانات تلقائياً -->
+        <div id="ads-wrapper"></div>
     </div>
 
     <footer>
         <p>&copy; 2026 جميع الحقوق محفوظة.</p>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- سكربت التحكم الذكي بالإعلانات               -->
+    <!-- ========================================== -->
+    <script>
+        /* 
+         * 🟢 ضع إعلاناتك هنا!
+         * يمكنك إضافة عدد لا نهائي من الإعلانات.
+         * id = رقم الإعلان من A-ADS
+         * type = نوع الإعلان (يجب أن يكون إما "banner" أو "image")
+         */
+        const MY_ADS = [
+            { id: "2440717", type: "banner" },
+            { id: "2440720", type: "image" },
+            { id: "2441300", type: "banner" },
+            { id: "2441302", type: "banner" },
+            { id: "2441304", type: "banner" },
+            { id: "2441306", type: "banner" },
+            { id: "2441307", type: "banner" },
+        ];
+
+        // ----------------------------------------------------
+        // كود معالجة الإعلانات (لا تحتاج لتعديل ما هو بالأسفل)
+        // ----------------------------------------------------
+        const wrapper = document.getElementById('ads-wrapper');
+
+        MY_ADS.forEach(ad => {
+            let width, height, sizeStr;
+            let label = "إعلان";
+
+            // تحديد المقاسات بناءً على النوع
+            if (ad.type === "banner") {
+                width = "120px"; height = "60px"; sizeStr = "120x60";
+                label = "إعلان بنر صغير";
+            } else if (ad.type === "image") {
+                width = "300px"; height = "250px"; sizeStr = "300x250";
+                label = "إعلان صورة منبثقة";
+            } else {
+                return; // تجاوز إذا كان النوع غير معروف
+            }
+
+            // إنشاء الهيكل HTML للإعلان
+            const adHtml = `
+                <div class="ad-container">
+                    <span class="ad-label">${label} (ID: ${ad.id})</span>
+                    <div style="width: ${width}; margin: auto; z-index: 99998; height: auto">
+                        <iframe data-aa='${ad.id}' src='//ad.a-ads.com/${ad.id}/?size=${sizeStr}'
+                                style='border:0; padding:0; width:${width}; height:${height}; overflow:hidden; display: block; margin: auto'></iframe>
+                    </div>
+                </div>
+                <br>
+            `;
+            
+            // ضخ الإعلان في الصفحة
+            wrapper.insertAdjacentHTML('beforeend', adHtml);
+        });
+    </script>
 </body>
 </html>
